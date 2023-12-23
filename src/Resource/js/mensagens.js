@@ -6,6 +6,6 @@ function mensagensJS(ret) {
     }else if (ret == 1){
         toastr.success('Ação concluída com sucesso!');
     }else if (ret == -1){
-        toastr.success('Ocorreu uma erro. Tente novamente mais tarde');
+        toastr.error('Ocorreu uma erro. Tente novamente mais tarde');
     }
 }

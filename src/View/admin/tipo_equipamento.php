@@ -1,7 +1,7 @@
 <?php
 
 // Configuração do diretório utilizando o dirname(__DIR__).
-include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
+include_once dirname(__DIR__, 2) . '/Resource/dataview/tipoEquipamentoDataview.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,12 +45,12 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
             <h3 class="card-title">Cadastre um novo equipamento</h3>
           </div>
           <div class="card-body">
-            <form id="formCAD" action="gerenciartipos_equipamento.php" method="post">
+            <form id="formID" action="gerenciartipos_equipamento.php" method="post">
               <div class="form-group">
                 <label>Tipo do equipamento</label>
-                <input type="text" class="form-control obg" name="tipo" id="tipo" placeholder="Digite o tipo de equipamento ... ">
+                <input type="text" class="form-control obg" name="nome_tipo" id="nome_tipo" placeholder="Digite o tipo de equipamento ... ">
               </div>
-              <button type="button" name="btn_cadastrar" class="btn btn-success">Gravar</button>
+              <button type="button" name="btn_cadastrar" onclick="CadastrarTipoEquipamentoAjax('formID')" class="btn btn-success">Gravar</button>
             </form>
           </div>
           <!-- /.card-body -->
@@ -89,6 +89,10 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
   include_once PATH . 'Template/_includes/_msg.php';
   ?>
 
+  <script src="../../Resource/ajax/tipoEquipamentoAjax.js"></script>
+  <script>
+      DetalharTipoEquipamento();
+  </script>
 
 </body>
 

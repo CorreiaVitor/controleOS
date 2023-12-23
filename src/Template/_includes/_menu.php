@@ -52,12 +52,12 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="../../View/admin/gerenciar_modeloequipamento.php" class="nav-link">
+                      <a href="../../View/admin/modelo_equipamento.php" class="nav-link">
                         <p>Modelo equipamento</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="../../View/admin/gerenciartipos_equipamento.php" class="nav-link">
+                      <a href="../../View/admin/tipo_equipamento.php" class="nav-link">
                         <p>Tipo equipamento</p>
                       </a>
                     </li>
