@@ -1,6 +1,6 @@
 <?php
 // Configuração do diretório utilizando o dirname(__DIR__).
-include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
+include_once dirname(__DIR__, 2) . '/Resource/dataview/setorEquipamentoDataview.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,13 +44,13 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
             <h3 class="card-title">Cadastre um novo setor</h3>
           </div>
           <div class="card-body">
-            <form id="formCAD" action="setor_equipamento.php" method="post">
+            <form id="formID" action="setor_equipamento.php" method="post">
               <!-- <input type="hidden" name="renderizar" id="renderizar" value="table"> -->
               <div class="form-group">
                 <label>Setor</label>
                 <input type="text" class="form-control obg" name="nome_setor" id="nome_setor" placeholder="Digite o setor... ">
               </div>
-              <button type="button" name="btn_cadastrar" class="btn btn-success">Gravar</button>
+              <button type="button" name="btn_cadastrar" onclick="CadastrarsetorEquipamentoAjax('formID')" class="btn btn-success">Gravar</button>
             </form>
           </div>
           <!-- /.card-body -->
@@ -72,7 +72,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                     </div>
                     <div class="card-body table-responsive p-0">
                       <table class="table table-hover" id="tableResult">
-                        
+
                       </table>
                     </div>
                   </div>
@@ -86,18 +86,16 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
     include_once PATH . 'Template/_includes/_footer.php';
     ?>
 
-    <form id="formALT" action="setor_equipamento.php" method="post">
-      <?php
-      include_once 'modal-html/alterar-setor.php';
-      include_once 'modal-html/excluir.php';
-      ?>
-    </form>
-
   </div>
   <?php
   include_once PATH . 'Template/_includes/_scripts.php';
   include_once PATH . 'Template/_includes/_msg.php';
   ?>
+
+  <script src="../../Resource/ajax/setorEquipamentoAjax.js"></script>
+  <script>
+    DetalharsetorEquipamento();
+  </script>
 
 </body>
 
