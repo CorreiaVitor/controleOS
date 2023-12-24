@@ -32,21 +32,21 @@ else if (isset($_POST['detelhar_tipo_equipamento'])) {
     $dados = $objCtrl->DetalharTipoEquipamentoCtrl();
 ?>
     <!-- Exibe os cabeçalhos da tabela -->
-    <thead>
+    <thead style="text-align: center;">
         <tr>
-            <th>Tipo equipamento</th>
+            <th>Tipo de Equipamento</th>
             <th>Ação</th>
         </tr>
     </thead>
     <?php foreach ($dados as $tipos) { ?>
         <!-- Utiliza o laço de repetição foreach para exibir as linhas da tabela com detalhes de cada tipo de equipamento -->
-        <tbody>
+        <tbody style="text-align: center;">
             <tr>
                 <td><?= $tipos['nome_tipo'] ?></td>
                 <td>
                     <!-- Botões para alterar e excluir tipos de equipamento (disparadores de modal) -->
-                    <a href="#" data-target="#modal-alterar" data-toggle="modal"  class="btn btn-warning btn-xs">Alterar</a>
-                    <a href="#" data-target="#modal-excluir" data-toggle="modal"  class="btn btn-danger btn-xs">Excluir</a>
+                    <a href="#" data-target="#modal-alterar" data-toggle="modal" onclick="CarregarModalAlterar('<?= $tipos['id_tipo'] ?>', '<?= $tipos['nome_tipo'] ?>')" class="btn btn-warning btn-xs">Alterar</a>
+                    <a href="#" data-target="#modal-excluir" data-toggle="modal" onclick="CarregarModalExcluir('<?= $tipos['id_tipo'] ?>', '<?= $tipos['nome_tipo'] ?>')" class="btn btn-danger btn-xs">Excluir</a>
                 </td>
             </tr>
         </tbody>
@@ -58,8 +58,8 @@ else if (isset($_POST['btn_alterar'])) {
     $objVO = new TipoEquipamentoVO;
 
     // Define o ID e o nome do tipo de equipamento com base nos dados do formulário
-    $objVO->setIdTipo($_POST['id_tipo']);
-    $objVO->setNomeTipo($_POST['nome_tipo']);
+    $objVO->setIdTipo($_POST['id_alterar']);
+    $objVO->setNomeTipo($_POST['nome_alterar']);
 
     // Chama o método AlterarTipoEquipamentoCtrl para alterar o tipo de equipamento
     $ret = $objCtrl->AlterarTipoEquipamentoCtrl($objVO);
@@ -76,13 +76,13 @@ else if (isset($_POST['btn_deletar'])) {
     $objVO = new TipoEquipamentoVO;
 
     // Define o ID do tipo de equipamento com base nos dados do formulário
-    $objVO->setIdTipo($_POST['id_tipo']);
+    $objVO->setIdTipo($_POST['id_excluir']);
 
     // Chama o método DeletarTipoEquipamentoCtrl para excluir o tipo de equipamento
     $ret = $objCtrl->DeletarTipoEquipamentoCtrl($objVO);
 
     // Verifica se o formulário foi enviado via AJAX
-    if ($_POST['btn_cadastar'] == 'ajx') {
+    if ($_POST['btn_deletar'] == 'ajx') {
         // Exibe o resultado
         echo $ret;
     }

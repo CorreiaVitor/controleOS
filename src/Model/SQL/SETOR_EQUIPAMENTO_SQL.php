@@ -15,7 +15,7 @@ class SETOR_EQUIPAMENTO_SQL
     // Método para retornar SQL de detalhamento de setor de equipamento
     public static function DETALHAR_SETOR_EQUIPAMENTO(): string
     {
-        $sql = 'SELECT id_Setor, nome_setor FROM tb_Setor';
+        $sql = 'SELECT id_setor, nome_setor FROM tb_setor';
         return $sql;
     }
 

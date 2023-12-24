@@ -13,4 +13,4 @@
   <!-- AdminLTE for mensagem.js purposes -->
   <script src="../../Resource/js/mensagens.js"></script>
   <!-- AdminLTE for carrgar_modal.js purposes -->
-  <!-- <script src="../../Resource/js/carregar_modal.js"></script> -->
+  <script src="../../Resource/js/carregar_modal.js"></script>

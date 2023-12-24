@@ -26,8 +26,6 @@ function validarCamposJS(formID) {
         mensagensJS(0);
 
     return ret;
-
-
 }
 
 // Função em JavaScript para exibir um indicador de carregamento
@@ -47,5 +45,9 @@ function LimparCamposJS(formID) {
         $(this).val('');
         $(this).removeClass('is-invalid').removeClass('is-valid');
     });
+}
+
+function fecharModal (nome_modal) {
+    $("#" + nome_modal).modal("hide")
 }
 
